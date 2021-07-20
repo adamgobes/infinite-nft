@@ -22,7 +22,7 @@ const getColumnsFromWidth = (width: number): number => {
 
 const InfiniteNFT: FunctionComponent<AppProps> = ({
     address,
-    gutter = 120,
+    gutter = 170,
     padding = 8,
 }) => {
     const [offset, setOffset] = useState<number>(0)
@@ -50,70 +50,61 @@ const InfiniteNFT: FunctionComponent<AppProps> = ({
     }
 
     return (
-        <div style={{ width: '100vw', height: '100vh' }}>
-            <AutoSizer>
-                {({ width, height }) => (
-                    <InfiniteLoader
-                        itemCount={2000}
-                        isItemLoaded={(index) => !!data[index]}
-                        loadMoreItems={async (startIndex) =>
-                            setOffset(startIndex)
-                        }
-                    >
-                        {({ onItemsRendered, ref }) => {
-                            const columns: number = getColumnsFromWidth(width)
-                            const rows: number = Math.ceil(
-                                data.length / columns
-                            )
+        <AutoSizer>
+            {({ width, height }) => (
+                <InfiniteLoader
+                    itemCount={2000}
+                    isItemLoaded={(index) => !!data[index]}
+                    loadMoreItems={async (startIndex) => setOffset(startIndex)}
+                >
+                    {({ onItemsRendered, ref }) => {
+                        const columns: number = getColumnsFromWidth(width)
+                        const rows: number = Math.ceil(data.length / columns)
 
-                            const squareDim: number =
-                                (width - gutter - padding * 2) / columns
-                            const totalRowHeight: number =
-                                squareDim * rows + gutter + padding * 2
+                        const squareDim: number =
+                            (width - gutter - padding * 2) / columns
+                        const totalRowHeight: number =
+                            squareDim * rows + gutter + padding * 2
 
-                            return (
-                                <FixedSizeGrid
-                                    ref={ref}
-                                    onItemsRendered={(args) =>
-                                        onItemsRendered({
-                                            overscanStartIndex:
-                                                args.overscanRowStartIndex *
-                                                columns,
-                                            overscanStopIndex:
-                                                args.overscanRowStopIndex *
-                                                columns,
-                                            visibleStartIndex:
-                                                args.visibleRowStartIndex *
-                                                columns,
-                                            visibleStopIndex:
-                                                args.visibleRowStopIndex *
-                                                columns,
-                                        })
-                                    }
-                                    width={width}
-                                    height={
-                                        totalRowHeight < height
-                                            ? totalRowHeight
-                                            : height
-                                    }
-                                    columnCount={columns}
-                                    columnWidth={squareDim}
-                                    rowCount={rows}
-                                    rowHeight={squareDim}
-                                >
-                                    {GridItemRenderer(
-                                        data,
-                                        columns,
-                                        gutter,
-                                        padding
-                                    )}
-                                </FixedSizeGrid>
-                            )
-                        }}
-                    </InfiniteLoader>
-                )}
-            </AutoSizer>
-        </div>
+                        return (
+                            <FixedSizeGrid
+                                ref={ref}
+                                onItemsRendered={(args) =>
+                                    onItemsRendered({
+                                        overscanStartIndex:
+                                            args.overscanRowStartIndex *
+                                            columns,
+                                        overscanStopIndex:
+                                            args.overscanRowStopIndex * columns,
+                                        visibleStartIndex:
+                                            args.visibleRowStartIndex * columns,
+                                        visibleStopIndex:
+                                            args.visibleRowStopIndex * columns,
+                                    })
+                                }
+                                width={width}
+                                height={
+                                    totalRowHeight < height
+                                        ? totalRowHeight
+                                        : height
+                                }
+                                columnCount={columns}
+                                columnWidth={squareDim}
+                                rowCount={rows}
+                                rowHeight={squareDim}
+                            >
+                                {GridItemRenderer(
+                                    data,
+                                    columns,
+                                    gutter,
+                                    padding
+                                )}
+                            </FixedSizeGrid>
+                        )
+                    }}
+                </InfiniteLoader>
+            )}
+        </AutoSizer>
     )
 }
 

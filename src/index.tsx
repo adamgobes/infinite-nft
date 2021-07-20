@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom'
 import InfiniteNFT from './App'
 
 ReactDOM.render(
-    <InfiniteNFT address={'0x82c1B61dA09b5FDce098a212Bb8070210AB91049'} />,
+    <InfiniteNFT address={'0xd8da6bf26964af9d7eed9e03e53415d37aa96045'} />,
     document.getElementById('root')
 )
