@@ -47,4 +47,4 @@ takes up 100% of both the height and width of the screen for the best viewing an
 
 Below is a GIF of the component in action with vitalik.eth
 
-![Alt Text](https://media.giphy.com/media/aAoOyNujxH91mDd6cY/giphy.gif)
+![Alt Text](https://media.giphy.com/media/RGBjsZaEZPXiC2n0ef/giphy.gif)
