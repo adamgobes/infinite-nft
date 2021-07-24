@@ -2,7 +2,7 @@
 
 > Embed your NFTs anywhere and everywhere
 
-infinite-nft is a react component for embedding a grid containing all of your NFTs. The component just-in-time loads elements of the grid so that
+`infinite-nft` is a react component for embedding a grid containing all of your NFTs. The component just-in-time loads elements of the grid so that
 whoever is viewing has an 'infinite' scroll experience. Huge shoutout to the OpenSea API for making this library possible.
 
 ## Install
