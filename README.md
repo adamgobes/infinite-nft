@@ -2,6 +2,9 @@
 
 > Embed your NFTs anywhere and everywhere
 
+infinite-nft is a react component for embedding a grid containing all of your NFTs. The component just-in-time loads elements of the grid so that
+whoever is viewing has an 'infinite' scroll experience. Huge shoutout to the OpenSea API for making this library possible.
+
 ## Install
 
 ```bash
@@ -42,6 +45,6 @@ takes up 100% of both the height and width of the screen for the best viewing an
 </div>
 ```
 
-Below is a GIF of the library in action with vitalik.eth
+Below is a GIF of the component in action with vitalik.eth
 
-![Alt Text](https://media.giphy.com/media/OzvaWe2Jm2a90nA4KX/giphy.gif)
+![Alt Text](https://media.giphy.com/media/aAoOyNujxH91mDd6cY/giphy.gif)
